@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './PostsTable.module.scss'
-import { memo, useEffect, useState } from 'react'
+import { memo, useEffect, useMemo, useState } from 'react'
 import { SearchTable } from 'features/SearchTable'
 import { SortTable } from 'features/SortTable'
 import { fetchPosts, getPostsTotalCount, OrderEnum, Posts, SortEnum } from 'entities/Posts'
@@ -22,8 +22,8 @@ export const PostsTable:React.FC<PostsTableProps> = memo((props) => {
 	const [sortOrder, setSortOrder] = useState<OrderEnum>(OrderEnum.ASC)
 	const [searchValue, setSearchValue] = useState('')
 	const totalCount = useSelector(getPostsTotalCount)
-	const numberOfPages = Math.ceil(totalCount / 10)
-	const pageNumber = +location.pathname.slice(1)
+	const numberOfPages = useMemo(() => Math.ceil(totalCount / 10), [totalCount])
+	const pageNumber = useMemo(() => +location.pathname.slice(1), [location.pathname])
 
 	useEffect(() => {
 		dispatch(fetchPosts({ page: 1 }))
@@ -40,7 +40,6 @@ export const PostsTable:React.FC<PostsTableProps> = memo((props) => {
 		if(searchValue) {
 			fetchObject.search = searchValue
 		}
-
 		dispatch(fetchPosts(fetchObject))
 
 	},[dispatch, pageNumber, searchValue, sortOrder, sortType])

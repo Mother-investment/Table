@@ -1,1 +1,0 @@
-export const regOnlyLowerLetters = /[^a-zа-я]+/g
