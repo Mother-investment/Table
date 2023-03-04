@@ -26,10 +26,6 @@ export const PostsTable:React.FC<PostsTableProps> = memo((props) => {
 	const pageNumber = useMemo(() => +location.pathname.slice(1), [location.pathname])
 
 	useEffect(() => {
-		dispatch(fetchPosts({ page: 1 }))
-	},[dispatch])
-
-	useEffect(() => {
 		const fetchObject: FetchPostsProps = {
 			page: pageNumber,
 			sort: {
@@ -42,7 +38,7 @@ export const PostsTable:React.FC<PostsTableProps> = memo((props) => {
 		}
 		dispatch(fetchPosts(fetchObject))
 
-	},[dispatch, pageNumber, searchValue, sortOrder, sortType])
+	},[dispatch, pageNumber, searchValue, sortOrder, sortType, totalCount])
 
 	return (
 		<div className={classNames(cls.PostsTable, {}, [className])}>
