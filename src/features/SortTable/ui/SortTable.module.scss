@@ -1,0 +1,43 @@
+.SortTable {
+	background-color: #474955;
+	height: 54px;
+}
+
+th {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 137.69%;
+}
+
+.SortTableItem {
+	cursor: pointer;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.icon {
+	margin-left: 25px;
+}
+
+.arrowIcon {
+    vertical-align: middle;
+    margin: auto 0;
+}
+
+.flipIcon {
+	transform: rotate(180deg);
+}
+
+.id {
+	width: 110px;
+}
+
+.title {
+	width: 529px;
+}
+
+.body {
+	width: 432px;
+}

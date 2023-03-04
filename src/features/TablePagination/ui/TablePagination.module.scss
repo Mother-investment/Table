@@ -1,0 +1,35 @@
+.TablePagination {
+	display: flex;
+	justify-content: space-between;
+	margin: 16px 41px 0;
+}
+
+.button {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 137.69%;
+	color: #474955;
+}
+
+a {
+	color: #474955;
+}
+
+.paginNumber {
+	font-family: 'Roboto';
+	font-style: italic;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 137.69%;
+	color: #474955;
+}
+
+.number + .number {
+	margin-left: 20px;
+}
+
+.active {
+	color: #7EBC3C;
+}
