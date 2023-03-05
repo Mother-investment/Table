@@ -5,19 +5,8 @@
 
 .app,
 .app_modal {
-	color: var(--secondary-color);
-	font: var(--font-m);
-	font: 16px;
 }
 
 .app {
-	background: var(--body-color);
 	min-height: 100vh;
-}
-
-.contentPage {
-	display: flex;
-	margin: 0 auto;
-	min-height: 100vh;
-	width: 85vw;
 }

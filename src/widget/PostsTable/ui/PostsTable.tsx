@@ -8,7 +8,7 @@ import { TablePagination } from 'features/TablePagination'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { FetchPostsProps } from 'entities/Posts/model/services/fetchPosts/fetchPosts'
 import { useSelector } from 'react-redux'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 interface PostsTableProps {
 	className?: string
@@ -24,6 +24,7 @@ export const PostsTable:React.FC<PostsTableProps> = memo((props) => {
 	const totalCount = useSelector(getPostsTotalCount)
 	const numberOfPages = useMemo(() => Math.ceil(totalCount / 10), [totalCount])
 	const pageNumber = useMemo(() => +location.pathname.slice(1), [location.pathname])
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		const fetchObject: FetchPostsProps = {
@@ -39,6 +40,13 @@ export const PostsTable:React.FC<PostsTableProps> = memo((props) => {
 		dispatch(fetchPosts(fetchObject))
 
 	},[dispatch, pageNumber, searchValue, sortOrder, sortType, totalCount])
+
+	useEffect(() => {
+		if(searchValue && pageNumber > numberOfPages && numberOfPages != 0) {
+			navigate('/1')
+		}
+	},[navigate, numberOfPages, pageNumber, searchValue])
+
 
 	return (
 		<div className={classNames(cls.PostsTable, {}, [className])}>

@@ -15,7 +15,7 @@ export const TablePagination:React.FC<TablePaginationProps> = memo((props) => {
 
 	return (
 		<div className={classNames(cls.TablePagination, {}, [className])}>
-			<Link className={cls.button} to={'/' + (pageNumber > 1 ? pageNumber - 1 : 1)}>Назад</Link>
+			<Link className={cls.button} to={'/' + (pageNumber > 1 && pageNumber < numberOfPages ? pageNumber - 1 : 1)}>Назад</Link>
 			<div className={cls.paginNumber}>
 				{paginNumbers.map(item => <Link className={classNames(cls.number, { [cls.active]: item === pageNumber }, [])} key={item} to={'/' + item}>{item}</Link>)}
 			</div>
