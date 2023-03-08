@@ -1,0 +1,26 @@
+.ForChristina {
+	width: 100%;
+	height: 60px;
+	background-color: var(--bg-color);
+	color: var(--color-sort-text);
+	cursor: pointer;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.modal {
+	display: none;
+	background-color: var(--bg-color);
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.opened {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
