@@ -1,16 +1,13 @@
 .SortTable {
 	background-color: var(--bg-color);
-	padding: 19px 10px 16px 10px;
-}
-
-th {
-	font-weight: var(--fw-medium);
-	font-size: var(--fs-m)
 }
 
 .sortTableItem {
+	padding: 19px 5px 16px;
 	cursor: pointer;
 	text-align: center;
+	font-weight: var(--fw-medium);
+	font-size: var(--fs-m);
 	color: var(--color-sort-text);
 }
 
