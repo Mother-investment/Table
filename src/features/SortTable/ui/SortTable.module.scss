@@ -1,6 +1,6 @@
 .SortTable {
 	background-color: var(--bg-color);
-	height: 54px;
+	padding: 19px 10px 16px 10px;
 }
 
 th {
@@ -37,4 +37,12 @@ th {
 
 .body {
 	width: 40%;
+}
+
+
+@media (max-width: 600px) {
+	.icon {
+		display: block;
+		margin: 0 auto;
+	}
 }

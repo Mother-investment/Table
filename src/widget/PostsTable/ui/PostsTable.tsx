@@ -23,7 +23,7 @@ export const PostsTable:React.FC<PostsTableProps> = memo((props) => {
 	const [searchValue, setSearchValue] = useState('')
 	const totalCount = useSelector(getPostsTotalCount)
 	const numberOfPages = useMemo(() => Math.ceil(totalCount / 10), [totalCount])
-	const pageNumber = useMemo(() => +location.pathname.slice(1), [location.pathname])
+	const pageNumber = useMemo(() => +location.pathname.slice(1) || 1, [location.pathname])
 	const navigate = useNavigate()
 
 	useEffect(() => {
