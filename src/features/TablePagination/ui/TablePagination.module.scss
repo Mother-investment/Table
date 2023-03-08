@@ -1,29 +1,23 @@
 .TablePagination {
 	display: flex;
-	justify-content: space-between;
-	margin: 16px 41px 0;
+	justify-content: space-around;
+	margin-top: 16px;
+	width: 90%;
 }
 
 .button {
-	font-family: 'Roboto';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 137.69%;
-	color: #474955;
+	font-weight: var(--fw-medium);
+	font-size: var(--fs-xl);
 }
 
 a {
-	color: #474955;
+	color: var(--color-text);
 }
 
 .paginNumber {
-	font-family: 'Roboto';
 	font-style: italic;
-	font-weight: 700;
-	font-size: 18px;
-	line-height: 137.69%;
-	color: #474955;
+	font-weight: var(--fw-bold);
+	font-size: var(--fs-l);
 }
 
 .number + .number {
@@ -31,5 +25,23 @@ a {
 }
 
 .active {
-	color: #7EBC3C;
+	color: var(--color-active);
+}
+
+
+@media (max-width: 768px) {
+	.TablePagination {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		gap: 10px 10px;
+		justify-items: center;
+		grid-template-areas:
+		  "qwe qwe qwe"
+		  "btna . btnt";
+	  }
+
+	.btnPrev { grid-area: btna; }
+	.btnNext { grid-area: btnt; }
+	.paginNumber { grid-area: qwe; }
 }

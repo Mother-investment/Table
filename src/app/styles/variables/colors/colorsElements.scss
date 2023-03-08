@@ -1,0 +1,10 @@
+@import 'color';
+
+:root {
+	--bg-color: var(--color-gray);
+	--color-text: var(--color-dark-gray);
+	--color-line: var(--color-dark-white);
+	--color-active: var(--color-green);
+	--color-input-text: var(--color-light-gray);
+	--color-sort-text: var(--color-white);
+}

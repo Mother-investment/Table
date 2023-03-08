@@ -5,7 +5,7 @@
 	position: fixed;
 	right: 0;
 	top: 0;
-	z-index: var(--z-loader);
+	z-index: 10;
 }
 
 .loaderContainer {
@@ -25,7 +25,7 @@
 
 .Loader div {
 	animation-timing-function: cubic-bezier(0, 1, 1, 0);
-	background: var(--secondary-color);
+	background: var(--color-line);
 	border-radius: 50%;
 	height: 13px;
 	position: absolute;

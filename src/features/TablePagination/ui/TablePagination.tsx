@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './TablePagination.module.scss'
-import { memo } from 'react'
+import { memo, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 
 interface TablePaginationProps {
@@ -13,13 +13,20 @@ export const TablePagination:React.FC<TablePaginationProps> = memo((props) => {
 	const { className, numberOfPages, pageNumber } = props
 	const paginNumbers = Array.from({ length: numberOfPages }, (_, index) => index + 1)
 
+	const prevContent = useMemo(() =>(
+		'/' + (pageNumber > 1 && pageNumber < numberOfPages + 1 ? pageNumber - 1 : 1)
+	),[numberOfPages, pageNumber])
+	const nextContent = useMemo(() =>(
+		'/' + (pageNumber < numberOfPages ? pageNumber + 1 : numberOfPages)
+	),[numberOfPages, pageNumber])
+
 	return (
 		<div className={classNames(cls.TablePagination, {}, [className])}>
-			<Link className={cls.button} to={'/' + (pageNumber > 1 && pageNumber < numberOfPages ? pageNumber - 1 : 1)}>Назад</Link>
+			<Link className={classNames(cls.button, {}, [cls.btnPrev])} to={prevContent}>Назад</Link>
 			<div className={cls.paginNumber}>
-				{paginNumbers.map(item => <Link className={classNames(cls.number, { [cls.active]: item === pageNumber }, [])} key={item} to={'/' + item}>{item}</Link>)}
+				{paginNumbers.map(item => <Link className={classNames(cls.number, { [cls.active]: item === pageNumber }, [])} key={item} to={`/${item}`}>{item}</Link>)}
 			</div>
-			<Link className={cls.button} to={'/' + (pageNumber < numberOfPages ? pageNumber + 1 : numberOfPages)}>Далее</Link>
+			<Link className={classNames(cls.button, {}, [cls.btnNext])} to={nextContent}>Далее</Link>
 		</div>
 	)
 })

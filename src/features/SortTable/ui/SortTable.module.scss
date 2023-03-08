@@ -1,20 +1,17 @@
 .SortTable {
-	background-color: #474955;
+	background-color: var(--bg-color);
 	height: 54px;
 }
 
 th {
-	font-family: 'Roboto';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 137.69%;
+	font-weight: var(--fw-medium);
+	font-size: var(--fs-m)
 }
 
-.SortTableItem {
+.sortTableItem {
 	cursor: pointer;
 	text-align: center;
-	color: #FFFFFF;
+	color: var(--color-sort-text);
 }
 
 .icon {
@@ -31,13 +28,13 @@ th {
 }
 
 .id {
-	width: 110px;
+	width: 10%;
 }
 
 .title {
-	width: 529px;
+	width: 50%;
 }
 
 .body {
-	width: 432px;
+	width: 40%;
 }

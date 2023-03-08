@@ -29,7 +29,7 @@ export const SortTable:React.FC<SortTableProps> = memo((props) => {
 		<thead className={classNames(cls.SortTable, {}, [className])}>
 			{Object.values(sortTableConfig).map((item) =>
 				<th
-					className={classNames(cls.SortTableItem, {}, [cls[item.sortOption]])}
+					className={classNames(cls.sortTableItem, {}, [cls[item.sortOption]])}
 					onClick={() => sortChange(item.sortOption)}
 					key={item.sortOption}
 				>
