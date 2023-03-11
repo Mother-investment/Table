@@ -9,7 +9,6 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { FetchPostsProps } from 'entities/Posts/model/services/fetchPosts/fetchPosts'
 import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { ForChristina } from 'features/ForChristina/ui/ForChristina'
 
 interface PostsTableProps {
 	className?: string
@@ -51,7 +50,6 @@ export const PostsTable:React.FC<PostsTableProps> = memo((props) => {
 
 	return (
 		<div className={classNames(cls.PostsTable, {}, [className])}>
-			<ForChristina />
 			<SearchTable setSearchValue={setSearchValue}/>
 			<table className={cls.table}>
 				<SortTable
